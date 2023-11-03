@@ -1,15 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 
 var initialDate = DateTime.Now;
 Console.WriteLine($"Initial time: {initialDate}");
 
 Console.WriteLine("Welcome to the math game");
-Console.WriteLine("");
-Console.WriteLine("In this game, you will be able to perform basic operations such as addition, subtraction, multiplication, and division");
-Console.WriteLine("");
-Console.WriteLine("Next, on the screen, you will see the options depending on the operation you want to perform.");
+Console.WriteLine("\nIn this game, you will be able to perform basic operations such as addition, subtraction, multiplication, and division");
+Console.WriteLine("\nNext, on the screen, you will see the options depending on the operation you want to perform: ");
 
 var result = 0;
 var resultsArray = new ArrayList();
@@ -30,25 +29,24 @@ stopWatch.Elapsed += (sender, e) =>
 
 stopWatch.Start();
 
-Console.WriteLine("To addition, type 'sum'");
-Console.WriteLine("To subtraction, type 'subtract'");
-Console.WriteLine("To multiplication, type 'multiply'");
-Console.WriteLine("To division, type 'division'");
-Console.WriteLine("To exit, type 'exit'");
-Console.WriteLine("");
-Console.WriteLine("You can view the history of the operations by typing 'history'");
+Console.WriteLine("\n\tTo addition: Type 'sum'");
+Console.WriteLine("\tTo subtraction: Type 'subtract'");
+Console.WriteLine("\tTo multiplication: Type 'multiply'");
+Console.WriteLine("\tTo division: Type 'division'");
+Console.WriteLine("\tTo exit: Type 'exit'");
+Console.WriteLine("\nYou can view the history of the operations by typing 'history'");
 
 do
 {
 
     option = Console.ReadLine().ToLower();
 
-    if (option != "history" && option != "exit")
+    if (option != "history" && option != "exit" && option == "sum" && option == "subtract" && option == "multiply" && option == "division")
     {
         Console.Write("Input the first number: ");
-        number1 = int.Parse(Console.ReadLine());
+        number1 = Convert.ToInt32(Console.ReadLine());
         Console.Write("Input the second number: ");
-        number2 = int.Parse(Console.ReadLine());
+        number2 = Convert.ToInt32(Console.ReadLine());
     }
 
     switch (option)
